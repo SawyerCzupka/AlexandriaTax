@@ -12,9 +12,9 @@
     <br>
 
     <h2>Methods</h2>
-    <p>The data was recieved by [Noah] </p>
+    <p>We acquired this data from a web-scraping algorithm origionally designed by Barrett Dalbec, one of Noah's colleagues. It worked by sending requests to alexandria.gov's realestate portal, loading each page and recording the necessary information in a dataframe, which we packaged into a csv. This scraper produced a dataframe listing the assessment values as well as the property taxes paid for every address on record. This scraper required around the clock supervision, and some minor adjustments, to procure all the information we needed. As a result of the sheer scale of the number of requests we were making, this program took over 20 hours to successfully run. </p>
     <p>For our main plot, the Folium library was used. We decided to go with a choropleth with a time slider to show the change of taxes over time. </p>
-    <p>To get correct coordinate locations for our eventual folium map, the [API - Sawyer]</p>
+    <p> Unfortunately, because our webscraper didn't acquire all the necessary information to geocode, we needed to access the UPS' API to retrieve the necessary information for geocoding, like Zipcode address. To get correct coordinate locations for our eventual folium map, the [API - Sawyer]</p>
     <p>One of our first major issues with this was that our original dataset did not contain addresses with zip codes, so the API pulled coordinates of other matching addresses from other zip codes. This inaccuracy ranged anywhere from cities next to Alexandria to Ontario, Canada. Because of this, much of the coordinate data was initially unusable.</p>
     <p>Another issue we ran into with a simple plot of all the points is that choropleths generally work better showing larger, more genralizable regions. To accomodate for this, we decided to plot the data grouping by zip code. As there was no readily avaiable geojson file for this purpose, a geojson file was created by the group with geojson.io, using the following Alexandria zip code map and the official Alexandria boundaries json file provided by the Alexandria Open Data project as reference to map the points accurately.</p>
     
