@@ -72,7 +72,10 @@
     
     <p>
       Our zip code issues were solved using the USPS API to lookup zip codes to
-      addresses. From this point, it was only a matter of plotting our data to
+      addresses. Since the addresses only included the street address and not the city or state, the city of Alexandria, VA was hard coded into the request.
+      The API allowed for up to 500 requests/second and it took around 1h to 
+      
+      From this point, it was only a matter of plotting our data to
       the geojson boundaries in our TimeSliderChoropleth.
     </p>
 
