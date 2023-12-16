@@ -11,11 +11,14 @@
       The city of Alexandria is one of Virginia's largest cities in terms of
       population. In recent years especially, its seen much growth industrially
       and economically. This growth can be seen reflected in the city's
-      taxation.
+      taxation and rising housing costs. However, our visualization posits that
+      this growth was unequally distributed so to speak. This is to say, 2 of the 7
+      zipcodes within Alexandria's borders are experiencing financial growth that
+      seemingly dwarfs the rest of Alexandria's municipalities. 
     </p>
     <p>
       In this project, real world data on housing info in Alexandria was used to
-    </p>
+    observe tax values over time.</p>
 
     <br />
 
@@ -32,6 +35,11 @@
       requests we were making, this program took over 20 hours to successfully
       run.
     </p>
+
+    <p>This dataset comprised of nearly 40 thousand rows of information.</p>
+    
+    <br>
+
     <p>
       For our main plot, the Folium library was used. We decided to go with a
       choropleth with a time slider to show the change of taxes over time.
@@ -79,14 +87,20 @@
       the geojson boundaries in our TimeSliderChoropleth.
     </p>
 
-    <br />
-    
+    <br>
+
+    <h2>Plots</h2>
+    <img src="A_Annual_Assesement by Year.png" class = img>
+    <br>
+    <img src="Average Taxes and Fees by Year.png" class = img>
+    <p>Of course, our initial plots are very simple 2 axis graphs. We can see that throughout the last decade, the average assessment and taxes of properties has gone up regardless of zip code.</p>
+
+
     <div class="map_div">
       <iframe src="map.html">
     </div>
     
-
-    <br />
-    <img src="A_Annual_Assesement by Year.png" class="img" />
-  </body>
+	<br>
+    
+</body>
 </html>
