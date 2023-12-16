@@ -1,1 +1,1 @@
-fill me out
+This cumulative final project is an examination of Alexandria's econimic growth by proxy of housing assesment values and property taxes paid. We look to visualize how these values have changed since 2008 as a measure to understand trends across zipcodes within Alexandria. By separating our data by zipcode and year, and computing the averages, we hope to understand and visualize distinctions between the zipcodes within Alexandria.
