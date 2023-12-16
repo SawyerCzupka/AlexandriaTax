@@ -38,9 +38,8 @@
     </p>
     <p>
       Unfortunately, because our webscraper didn't acquire all the necessary
-      information to geocode, we needed to access the UPS' API to retrieve the
-      necessary information for geocoding, like Zipcode address. To get correct
-      coordinate locations for our eventual folium map, the [API - Sawyer]
+      information to geocode, we needed to access the Nominatim API to retrieve the
+      necessary information for geocoding. To get correct coordinate locations for our eventual folium map, the Nominatim geocoding API was used to convert the addresses to lat/long coordinates. Ultimately, we did not end up using the coordinate data for each property since it made the visualization too cluttered.
     </p>
     <p>
       One of our first major issues with this was that our original dataset did
@@ -70,6 +69,7 @@
       address would also be unecessary, as we would just need to map each
       address's data to its respective zip code.
     </p>
+    
     <p>
       Our zip code issues were solved using the USPS API to lookup zip codes to
       addresses. From this point, it was only a matter of plotting our data to
@@ -77,8 +77,9 @@
     </p>
 
     <br />
+    
     <div class="map_div">
-        <iframe src="map.html">
+      <iframe src="map.html">
     </div>
     
 
