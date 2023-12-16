@@ -1,33 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <link rel="stylesheet" href="style.css" />
     <title>DATA 303 Project</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Data 303 Project - Taxes in Alexandria Properties</h1>
     <h2>Introduction</h2>
-    <p>The city of Alexandria is one of Virginia's largest cities in terms of population. In recent years especially, its seen much growth industrially and economically. This growth can be seen reflected in the city's taxation.</p>
-    <p>In this project, real world data on housing info in Alexandria was used to </p>
+    <p>
+      The city of Alexandria is one of Virginia's largest cities in terms of
+      population. In recent years especially, its seen much growth industrially
+      and economically. This growth can be seen reflected in the city's
+      taxation.
+    </p>
+    <p>
+      In this project, real world data on housing info in Alexandria was used to
+    </p>
 
-    <br>
+    <br />
 
     <h2>Methods</h2>
-    <p>We acquired this data from a web-scraping algorithm origionally designed by Barrett Dalbec, one of Noah's colleagues. It worked by sending requests to alexandria.gov's realestate portal, loading each page and recording the necessary information in a dataframe, which we packaged into a csv. This scraper produced a dataframe listing the assessment values as well as the property taxes paid for every address on record. This scraper required around the clock supervision, and some minor adjustments, to procure all the information we needed. As a result of the sheer scale of the number of requests we were making, this program took over 20 hours to successfully run. </p>
-    <p>For our main plot, the Folium library was used. We decided to go with a choropleth with a time slider to show the change of taxes over time. </p>
-    <p> Unfortunately, because our webscraper didn't acquire all the necessary information to geocode, we needed to access the UPS' API to retrieve the necessary information for geocoding, like Zipcode address. To get correct coordinate locations for our eventual folium map, the [API - Sawyer]</p>
-    <p>One of our first major issues with this was that our original dataset did not contain addresses with zip codes, so the API pulled coordinates of other matching addresses from other zip codes. This inaccuracy ranged anywhere from cities next to Alexandria to Ontario, Canada. Because of this, much of the coordinate data was initially unusable.</p>
-    <p>Another issue we ran into with a simple plot of all the points is that choropleths generally work better showing larger, more genralizable regions. To accomodate for this, we decided to plot the data grouping by zip code. As there was no readily avaiable geojson file for this purpose, a geojson file was created by the group with geojson.io, using the following Alexandria zip code map and the official Alexandria boundaries json file provided by the Alexandria Open Data project as reference to map the points accurately.</p>
+    <p>
+      We acquired this data from a web-scraping algorithm origionally designed
+      by Barrett Dalbec, one of Noah's colleagues. It worked by sending requests
+      to alexandria.gov's realestate portal, loading each page and recording the
+      necessary information in a dataframe, which we packaged into a csv. This
+      scraper produced a dataframe listing the assessment values as well as the
+      property taxes paid for every address on record. This scraper required
+      around the clock supervision, and some minor adjustments, to procure all
+      the information we needed. As a result of the sheer scale of the number of
+      requests we were making, this program took over 20 hours to successfully
+      run.
+    </p>
+    <p>
+      For our main plot, the Folium library was used. We decided to go with a
+      choropleth with a time slider to show the change of taxes over time.
+    </p>
+    <p>
+      Unfortunately, because our webscraper didn't acquire all the necessary
+      information to geocode, we needed to access the UPS' API to retrieve the
+      necessary information for geocoding, like Zipcode address. To get correct
+      coordinate locations for our eventual folium map, the [API - Sawyer]
+    </p>
+    <p>
+      One of our first major issues with this was that our original dataset did
+      not contain addresses with zip codes, so the API pulled coordinates of
+      other matching addresses from other zip codes. This inaccuracy ranged
+      anywhere from cities next to Alexandria to Ontario, Canada. Because of
+      this, much of the coordinate data was initially unusable.
+    </p>
+    <p>
+      Another issue we ran into with a simple plot of all the points is that
+      choropleths generally work better showing larger, more genralizable
+      regions. To accomodate for this, we decided to plot the data grouping by
+      zip code. As there was no readily avaiable geojson file for this purpose,
+      a geojson file was created by the group with geojson.io, using the
+      following Alexandria zip code map and the official Alexandria boundaries
+      json file provided by the Alexandria Open Data project as reference to map
+      the points accurately.
+    </p>
+
+    <img src="zipcodesimage.PNG" class="img folium" />
+
+    <p>
+      Beyond the geojson boundaries, we also ran into another familiar issue
+      with our plan - our original dataset included addresses without the zip
+      codes. Once we recieved the zip codes, it seemed like all of our problems
+      would be fixed. Because of our new method, exact coordinates for each
+      address would also be unecessary, as we would just need to map each
+      address's data to its respective zip code.
+    </p>
+    <p>
+      Our zip code issues were solved using the USPS API to lookup zip codes to
+      addresses. From this point, it was only a matter of plotting our data to
+      the geojson boundaries in our TimeSliderChoropleth.
+    </p>
+
+    <br />
+    <div class="map_div">
+        <iframe src="map.html">
+    </div>
     
 
-    <img src="zipcodesimage.PNG" class = img>
-    
-    <p>Beyond the geojson boundaries, we also ran into another familiar issue with our plan - our original dataset included addresses without the zip codes. Once we recieved the zip codes, it seemed like all of our problems would be fixed. Because of our new method, exact coordinates for each address would also be unecessary, as we would just need to map each address's data to its respective zip code.</p>
-    <p>Our zip code issues were solved using the USPS API to lookup zip codes to addresses. From this point, it was only a matter of plotting our data to the geojson boundaries in our TimeSliderChoropleth.</p>
-
-    <br>
-    <iframe border:none" src="map.html"></iframe>
-    
-	<br>
-    <img src="A_Annual_Assesement by Year.png" class = img>
-</body>
+    <br />
+    <img src="A_Annual_Assesement by Year.png" class="img" />
+  </body>
 </html>
