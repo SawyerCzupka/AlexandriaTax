@@ -5,12 +5,23 @@
 </head>
 <body>
     <h1>Data 303 Project - Taxes in Alexandria Properties</h1>
+    <h2>Introduction</h2>
     <p>The city of Alexandria is one of Virginia's largest cities in terms of population. In recent years especially, its seen much growth industrially and economically. This growth can be seen reflected in the city's taxation.</p>
     <p>In this project, data on housing info in Alexandria was used to </p>
 
-
-    <iframe style="width:1000px; height:600px; border:none" src="map.html"></iframe>
     <br>
+
+    <h2>Methods</h2>
+    <p>The data was recieved by</p>
+    <p>For our main plot, the Folium library was used. We decided to go with a choropleth with a time slider to show the change of taxes over time. </p>
+    <p>The initial issue we ran into with a simple plot of all the points is that choropleths generally work better showing larger, more genralizable regions. To accomodate for this, we decided to plot the data grouping by zip code. As there was no readily avaiable geojson file for this purpose, a geojson file was created by the group with geojson.io, using the following Alexandria zip code map and the official Alexandria boundaries json file provided by the Alexandria Open Data project as reference to map the points accurately.</p>
+    <p></p>
+
+    <img src="zipcodesimage.PNG" class = img>
+    
+    <br>
+    <iframe style="width:1100px; height:600px; border:none" src="map.html"></iframe>
+    
 	<br>
     <img src="A_Annual_Assesement by Year.png" class = img>
 </body>
